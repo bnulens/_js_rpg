@@ -4,7 +4,7 @@
 }
 
 .brawl {
-  
+    // CREATION PAGE 
     #selection-page {
         display: flex;
         flex-direction: column;
@@ -17,8 +17,9 @@
         color: white;
         .title {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             position: relative;
         }
         .characters {
@@ -48,9 +49,15 @@
             }
         }
         #start-fight {
+            background-image: linear-gradient(#1C110A, #4a4a4a);
+            border: none;
+            color: white;
+            width: 10vw;
+            height: 5vh;
+            border-radius: 75%;
         }
     }
-
+    // BATTLE PAGE
     #battle-scene {
         width: 100%;
         height: 100%;
@@ -82,7 +89,7 @@
             display: grid;
             grid-template-columns: auto auto auto;
             grid-template-rows: auto;
-            grid-template-areas:"1 2 3 "
+            grid-template-areas:"1 2 3"
         
         }
     }

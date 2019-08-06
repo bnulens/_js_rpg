@@ -12,24 +12,25 @@
         <!-- CREATION PAGE -->
         <div id="selection-page" type="content">
             <div class="title">
-                <h1>Choose Your Fighter</h1>
+                <h1>Pick Your Fighter</h1>
+                <h3>choose wisely</h3>
             </div>
             <div class="characters">
-                <!-- player 1 -->
+                <!-- player 1 selection -->
                 <button id="previous-one">&lt;</button>
                 <div id="selection-player-one">
                     <div id="player-one-avatar">img</div>
+                    <div id="selection-player-one-item">item</div>
                     <div id="selection-player-one-stats">stats</div>
-                    <div id="selection-player-one-item">item + stats</div>
                 </div>
                 <button id="next-one">&gt;</button>
                 <h3>versus</h3>
-                <!-- player 2 -->
+                <!-- player 2 selection -->
                 <button id="previous-two">&lt;</button>
                 <div id="selection-player-two">
                     <div id="player-two-avatar">img</div>
+                    <div id="selection-player-two-item">item</div>
                     <div id="selection-player-two-stats">stats</div>
-                    <div id="selection-player-two-item">item + stats</div>
                 </div>
                 <button id="next-two">&gt;</button>
             </div>
@@ -44,10 +45,12 @@
                 <p>Player 2 HP</p>
                 <progress id="p2-health" value="100" max="100"></progress>
             </div>
+            <!-- Where the avatars appear and animations happen -->
             <div class="battle-ground">
-                <div id="player-one">p1</div>
-                <div id="player-two">p2</div>
+                <div id="player-one">img-P1</div>
+                <div id="player-two">img-P2</div>
             </div>
+            <!-- Where the playermoves are available  -->
             <div class="player-moves" type="content">
                 <div id="player-one-moves">p1moves</div>
                 <div id="player-actions">log</div>

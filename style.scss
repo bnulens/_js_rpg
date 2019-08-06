@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.brawl {
+  
+    #selection-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: hsla(20, 4%, 15%, 0.461);
+        color: white;
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+        }
+        .characters {
+            display: flex;
+            flex-wrap: wrap;
+            #selection-player-one {
+                border: 1px solid red;
+                height: 30vh;
+                width: 20vw;
+            }
+            h3 {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            #selection-player-two {
+                border: 1px solid red;
+                height: 30vh;
+                width: 20vw;
+            }
+            button {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+                border-radius: 50%;
+            }
+        }
+        #start-fight {
+        }
+    }
+
+    #battle-scene {
+        width: 100%;
+        height: 100%;
+        #countdown {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+        .head-up-display {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-self: center;
+            margin-top: 10px;
+        }
+        .battle-ground {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-self: center;
+            width: 100%;
+            height: 100%;
+            #player-one {
+                display: flex;
+                justify-content: flex-start;
+            }
+        }
+        .player-moves {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto;
+            grid-template-areas:"1 2 3 "
+        
+        }
+    }
+}

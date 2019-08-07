@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+body {
+    // background-image: url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
+    background-image: url(images/boris-yue-9sE-72cYCeI-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
 .brawl {
     // CREATION PAGE 
     #selection-page {
@@ -13,7 +21,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: hsla(20, 4%, 15%, 0.461);
+        background-color: hsla(20, 4%, 15%, 0.907);
         color: white;
         .title {
             display: flex;
@@ -26,8 +34,10 @@
             display: flex;
             flex-wrap: wrap;
             #selection-player-one {
+                display: flex;
+                flex-direction: column;
                 border: 1px solid red;
-                height: 30vh;
+                height: 60vh;
                 width: 20vw;
             }
             h3 {
@@ -36,16 +46,24 @@
                 align-items: center;
             }
             #selection-player-two {
+                display: flex;
+                flex-direction: column;
                 border: 1px solid red;
-                height: 30vh;
+                height: 60vh;
                 width: 20vw;
             }
             button {
                 display: flex;
-                flex-wrap: wrap;
+                flex-direction: row;
                 justify-content: center;
                 align-content: center;
+                margin: 238px 20px 0px 20px;
+                height: 10vh;
+                width: 5vw;
                 border-radius: 50%;
+                border: none;
+                color: white;
+                background-color: transparent;
             }
         }
         #start-fight {
@@ -74,22 +92,22 @@
             margin-top: 10px;
         }
         .battle-ground {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-self: center;
-            width: 100%;
-            height: 100%;
-            #player-one {
-                display: flex;
-                justify-content: flex-start;
+            display: grid;
+            grid-template-columns:  1fr 1fr;
+            grid-template-rows: 50vh;
+            grid-template-areas:" . [playerOne] playerTwo . ";
+            #playerOne {
+                grid-area: "playerOne";
+            }
+            #playerTwo {
+                grid-area: "playerTwo";
             }
         }
         .player-moves {
             display: grid;
             grid-template-columns: auto auto auto;
             grid-template-rows: auto;
-            grid-template-areas:"1 2 3"
+            grid-template-areas:"1 2 3";
         
         }
     }

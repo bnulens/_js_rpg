@@ -4,10 +4,10 @@
 }
 
 body {
-    // background-image: url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
     background-image: url(images/boris-yue-9sE-72cYCeI-unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    font-family: 'Anton', sans-serif;
     height: 100vh;
 }
 
@@ -21,7 +21,9 @@ body {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: hsla(20, 4%, 15%, 0.907);
+        background-image: linear-gradient(to bottom, rgba(0, 73, 115, 0.814), #341100cc),url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
         color: white;
         .title {
             display: flex;
@@ -33,10 +35,12 @@ body {
         .characters {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
             #selection-player-one {
                 display: flex;
                 flex-direction: column;
-                border: 1px solid red;
+                // border: 1px solid red;
                 height: 60vh;
                 width: 20vw;
             }
@@ -45,19 +49,46 @@ body {
                 flex-direction: row;
                 align-items: center;
             }
+            #selection-player-one-items {
+                display: flex;
+                flex-direction: row;
+                .item-p1 {
+                    .active {
+                        
+                    }
+                }
+                img {
+                    height: 5vh;
+                }
+            }
+            .versus {
+                height: 25vh;
+                width: 8vw;
+                margin-top: 20vh;
+            }
             #selection-player-two {
                 display: flex;
                 flex-direction: column;
                 border: 1px solid red;
                 height: 60vh;
                 width: 20vw;
+                #selection-player-two-items {
+                    display: flex;
+                    flex-direction: row;
+                    button {
+                        display: block;
+                    }
+                    img {
+                        height: 5vh;
+                    }
+                }
             }
             button {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 align-content: center;
-                margin: 238px 20px 0px 20px;
+                margin: 0px 20px 0px 20px;
                 height: 10vh;
                 width: 5vw;
                 border-radius: 50%;
@@ -67,12 +98,12 @@ body {
             }
         }
         #start-fight {
-            background-image: linear-gradient(#1C110A, #4a4a4a);
-            border: none;
-            color: white;
-            width: 10vw;
-            height: 5vh;
-            border-radius: 75%;
+        background-color: transparent;
+        border: none;
+        img {
+        width: 18vw;
+        height: 12vh;
+        }
         }
     }
     // BATTLE PAGE

@@ -1,65 +1,86 @@
-function Person(race,item){
-  this.race = race;
-  this.item = item;
-  this.currenthealth = 100;
-  this.maxHealth = 100;
-  
-  this.min = 3;
-  this.maxDamage = 20;
-  this.maxHealing = 30;
-
-  this.heal = function(){};
-
-  this.damage = function(){};
-
-  this.totalDamage = this.damage();
-
-  displayChar(this.race,this.item,this.maxHealth);
-}
-    
-let Knight = new Person ("Human","Longsword",);
-let Troll = new Person ("Troll","Axe", );
-let Elf = new Person ("Elves","" );
-let Ghoul = new Person ("Ghoul","Necromantics", );
-
 // let playerOneAttack = Math.floor(Math.random() * Person.maxDamage);
-var selectAvatarOne = document.getElementById("player-one-avatar");
-let selectAvatarTwo = document.getElementById("player-two-avatar");
+
+// /*------------------------------------*/
 
 // Creating an Array for the various character images
-var imgArray = new Array();
+const warriorArray = [
+  "images/samurai.png",
+  "images/troll.png",
+  "images/elf.png",
+  "images/ghoul.png"
+];
+var warriorClan = warriorArray.length;
 
-imgArray[0] = new Image();
-imgArray[0].src = 'images/img/Splash_image1.jpg';
+let nextWarrior = document.getElementById("next-one");
+let previousWarrior = document.getElementById("previous-one");
+const p1avatar = document.getElementById("player-one-avatar");
+const imagePlayerOne = document.getElementById("selection-player-one");
 
-imgArray[1] = new Image();
-imgArray[1].src = 'images/img/Splash_image2.jpg';
+const createWarrior = document.createElement('IMG');
+var lastWarrior = warriorArray[warriorClan-1];
+let i = 0;
+ 
+previousWarrior.addEventListener("click", function(){
+  
+  if (i === -1){
+    i = 3; 
+    
+  }
+  createWarrior.setAttribute("src", warriorArray[i]);
+  createWarrior.setAttribute("class", "warrior");
+  createWarrior.setAttribute("height", "575");
+  createWarrior.setAttribute("alt", "selected warrior");
+  p1avatar.appendChild(createWarrior);
 
-/* ... more images ... */
+  i -= 1;
+  
+})
 
-imgArray[5] = new Image();
-imgArray[5].src = 'images/img/Splash_image6.jpg';
+nextWarrior.addEventListener("click", function(){
+  
+  if (i === 4){
+    i = 0;
+  }
+  createWarrior.setAttribute("src", warriorArray[i]);
+  createWarrior.setAttribute("class", "warrior");
+  createWarrior.setAttribute("height", "575");
+  createWarrior.setAttribute("alt", "selected warrior");
+  p1avatar.appendChild(createWarrior);
 
-/*------------------------------------*/
+  i += 1;
+})
 
-function nextImage(element)
-{
-    var img = document.getElementById(element);
+// if (warriorArray.indexOf(lastWarrior) > -1) {
+//   // return;
+// }
 
-    for(var i = 0; i < imgArray.length;i++)
-    {
-        if(imgArray[i].src == img.src) // << check this
-        {
-            if(i === imgArray.length){
-                document.getElementById(element).src = imgArray[0].src;
-                break;
-            }
-            document.getElementById(element).src = imgArray[i+1].src;
-            break;
-        }
-    }
-}
+// var header = document.getElementById("myDIV");
+// var btns = header.getElementsByClassName("btn");
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//   var current = document.getElementsByClassName("active");
+//   if (current.length > 0) { 
+//     current[0].className = current[0].className.replace(" active", "");
+//   }
+//   this.className += " active";
+//   });
+// }
 
+
+
+
+
+// let previousP1 = document.getElementById("previous-p1");
+// let nextP1 = document.getElementById("next-p1");
+
+// previousP1.addEventListener("click", function (){
+//   console.log('prev')
+// });
+
+// nextP1.addEventListener("click", function (){
+//   console.log('next')
+// });
+// console.log(warriorArray);
 
 // let characterArray = 
 /* TIMER for BATTLE
@@ -73,3 +94,14 @@ function nextImage(element)
     }
  }, 1000); */
 
+// var itemSelect = document.getElementById("selection-player-one-items");
+// var itemButton = itemSelect.getElementsByClassName("item-p1");
+// for (var k = 0; k < itemButton.length; k++) {
+//   itemButton[k].addEventListener("click", function() {
+//   var current = document.getElementsByClassName("active");
+//   if (current.length > 0) { 
+//     current[0].className = current[0].className.replace(" active", "");
+//   }
+//   this.className += " active";
+//   });
+// }

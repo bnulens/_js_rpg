@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Brawl</title>
+</head>
+<body>
+    <div class="brawl">
+        <!-- CREATION PAGE -->
+        <div id="selection-page" type="content">
+            <div class="title">
+                <h1>Pick Your Fighter</h1>
+                <h3>choose wisely</h3>
+            </div>
+            <div class="characters">
+                <!-- player 1 selection -->
+                <button id="previous-one">&lt;</button>
+                <div id="selection-player-one">
+                    <div id="player-one-avatar"></div>
+                    <div id="selection-player-one-items">
+                        <button class="item-p1 active"><img src="images/damage.png"></button>
+                        <button class="item-p1"><img src="images/potion.png"></button>
+                        <button class="item-p1"><img src="images/lightning.png"></button>
+                        <button class="item-p1"><img src="images/shield.png"></button>
+                    </div>
+                    <div id="selection-player-one-stats"></div>
+                </div>
+                <button id="next-one">&gt;</button>
+                <img class="versus" src="images/vs.png">
+                <!-- player 2 selection -->
+                <button id="previous-two">&lt;</button>
+                <div id="selection-player-two">
+                    <div id="player-two-avatar"></div>
+                    <div id="selection-player-two-items">
+                        <button class="item-p2 active"><img src="images/damage.png"></button>
+                        <button class="item-p2"><img src="images/potion.png"></button>
+                        <button class="item-p2"><img src="images/lightning.png"></button>
+                        <button class="item-p2"><img src="images/shield.png"></button>
+                    </div>
+                    <div id="selection-player-two-stats"></div>
+                </div>
+                <button id="next-two">&gt;</button>
+            </div>
+            <button id="start-fight" type="button"><img class="fight button" src="images/fight.png"></button>
+        </div> 
+        <!-- ACTUAL BATTLE -->
+        <div id="battle-scene" name="battle-scene" type="content">
+            <div id="countdown"></div>
+            <div class="head-up-display">
+                <p>Player 1 HP</p>
+                <progress id="p1-health" value="100" max="100"></progress>
+                <p>Player 2 HP</p>
+                <progress id="p2-health" value="100" max="100"></progress>
+            </div>
+            <!-- Where the avatars appear and animations happen -->
+            <div class="battle-ground">
+                <div id="player-one">img-P1</div>
+                <div id="player-two">img-P2</div>
+            </div>
+            <!-- Where the playermoves are available  -->
+            <div class="player-moves" type="content">
+                <div id="player-one-moves">
+                    <button id="attack">Attacc</button>
+                    <button id="heal">Heal</button>
+                    <button id="counter">Counter</button>
+                </div>
+                <div id="player-actions">log</div>
+                <div id="player-two-moves">
+                    <button id="attack">Attacc</button>
+                    <button id="heal">Heal</button>
+                    <button id="counter">Counter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="battle.js"></script>
+</body>
+</html>

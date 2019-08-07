@@ -7,6 +7,7 @@ body {
   background-image: url(images/boris-yue-9sE-72cYCeI-unsplash.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Anton', sans-serif;
   height: 100vh;
 }
 
@@ -27,7 +28,10 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(40, 38, 37, 0.907);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 73, 115, 0.814)), to(#341100cc)), url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 73, 115, 0.814), #341100cc), url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   color: white;
 }
 
@@ -54,6 +58,11 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .brawl #selection-page .characters #selection-player-one {
@@ -64,7 +73,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid red;
   height: 60vh;
   width: 20vw;
 }
@@ -82,6 +90,26 @@ body {
           align-items: center;
 }
 
+.brawl #selection-page .characters #selection-player-one-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.brawl #selection-page .characters #selection-player-one-items img {
+  height: 5vh;
+}
+
+.brawl #selection-page .characters .versus {
+  height: 25vh;
+  width: 8vw;
+  margin-top: 20vh;
+}
+
 .brawl #selection-page .characters #selection-player-two {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,6 +121,24 @@ body {
   border: 1px solid red;
   height: 60vh;
   width: 20vw;
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-player-two-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-player-two-items button {
+  display: block;
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-player-two-items img {
+  height: 5vh;
 }
 
 .brawl #selection-page .characters button {
@@ -108,7 +154,7 @@ body {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  margin: 238px 20px 0px 20px;
+  margin: 0px 20px 0px 20px;
   height: 10vh;
   width: 5vw;
   border-radius: 50%;
@@ -118,13 +164,13 @@ body {
 }
 
 .brawl #selection-page #start-fight {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1C110A), to(#4a4a4a));
-  background-image: linear-gradient(#1C110A, #4a4a4a);
+  background-color: transparent;
   border: none;
-  color: white;
-  width: 10vw;
-  height: 5vh;
-  border-radius: 75%;
+}
+
+.brawl #selection-page #start-fight img {
+  width: 18vw;
+  height: 12vh;
 }
 
 .brawl #battle-scene {

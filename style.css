@@ -2,17 +2,19 @@
   font-family: neon;
   src: url(BeCode/projects/JavaScript/RPG2.0/_js_rpg/neon.ttf);
 }
+/* ITEMS GLOW */
 @keyframes anim-glow {
   0% {
     box-shadow: 0px 0px #61ef61;
     background-color: transparent;
   }
   100% {
-    box-shadow: 0px 0px 17px 15px white;
+    box-shadow: 0px 0px 17px 15px purple;
     border-width: 1px;
     background-color: none;
   }
 }
+/* NEON GLOW */
 @keyframes flux {
   0%, 100% {
     text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 0.4vw #8BFDFE, 0.5vw 0.5vw 0.1vw #147280;
@@ -33,15 +35,16 @@
     color: #806914;
   }
 }
+/* FIRE */
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-image: url(images/boris-yue-9sE-72cYCeI-unsplash.jpg);
+  background: url("images/boris-yue-9sE-72cYCeI-unsplash.jpg") no-repeat center center;
+  background-position: bottom;
   background-size: cover;
-  background-repeat: no-repeat;
   font-family: "Alfa Slab One", cursive;
   height: 100vh;
 }
@@ -54,7 +57,7 @@ body {
 }
 
 .neon {
-  font-family: neon;
+  font-family: "neon";
   color: #FB4264;
   font-size: 9vw;
   line-height: 9vw;
@@ -62,7 +65,7 @@ body {
 }
 
 .flux {
-  font-family: neon;
+  font-family: "neon";
   color: #426DFB;
   font-size: 9vw;
   line-height: 9vw;
@@ -131,15 +134,15 @@ body {
   align-items: center;
 }
 .brawl #selection-page .characters #selection-player-one-items .item-p1.active {
-  box-shadow: 0px 0px 17px 15px white;
+  box-shadow: 0px 0px 17px 15px purple;
   border-width: 1px;
-  background-image: radial-gradient(lightblue, white);
+  background-image: radial-gradient(lightblue, purple);
   animation: anim-glow 1.3s ease;
 }
 .brawl #selection-page .characters #selection-player-one-items .item-p1:hover {
   animation: anim-glow 1.3s ease infinite;
   outline: none;
-  background-image: radial-gradient(lightblue, white);
+  background-image: radial-gradient(lightblue, purple);
 }
 .brawl #selection-page .characters #selection-player-one-items img {
   height: 5vh;
@@ -185,6 +188,8 @@ body {
 .brawl #selection-page #start-fight {
   background-color: transparent;
   border: none;
+  width: 5vw;
+  height: 5vh;
 }
 .brawl #selection-page #start-fight img {
   width: 10vw;
@@ -223,6 +228,131 @@ body {
   grid-template-columns: auto auto auto;
   grid-template-rows: auto;
   grid-template-areas: "1 2 3";
+}
+
+.player-moves-container {
+  display: block;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#player-one-moves {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 10px;
+  margin-left: 50px;
+  margin-top: -45px;
+  padding: 10px;
+}
+
+#player-two-moves {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-top: -45px;
+  padding: 10px;
+}
+
+/* ATTACK BUTTON STYLING */
+#attack {
+  width: 10vw;
+  height: 10vh;
+  margin: 10px;
+  background-color: rgba(117, 117, 117, 0.317);
+}
+
+.draw-border {
+  box-shadow: inset 0 0 0 4px lightblue;
+  color: lightblue;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+}
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+.draw-border:hover {
+  color: red;
+}
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: red;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn1 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem "Roboto Slab", sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  color: black;
+}
+.btn1:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+/* HEAL BUTTON STYLING */
+#heal {
+  width: 55px;
+  height: 25px;
+  margin: 10px;
+}
+
+#counter {
+  width: 55px;
+  height: 25px;
+  margin: 10px;
+}
+
+.player-actions-container {
+  display: grid;
+  justify-content: center;
+  align-items: flex-end;
+  width: 75vw;
+}
+
+.player-actions-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  height: 10vh;
+  background: transparent;
+  border: 1px solid grey;
+}
+
+#player-actions {
+  font-size: 1vw;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -7,7 +7,7 @@ body {
   background-image: url(images/boris-yue-9sE-72cYCeI-unsplash.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Anton', sans-serif;
+  font-family: 'Alfa Slab One', cursive;
   height: 100vh;
 }
 
@@ -98,6 +98,10 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.brawl #selection-page .characters #selection-player-one-items .item-p1.active {
+  border: 1px solid red;
 }
 
 .brawl #selection-page .characters #selection-player-one-items img {

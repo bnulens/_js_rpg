@@ -9,6 +9,19 @@ const warriorArray = [
   "images/elf.png",
   "images/ghoul.png"
 ];
+
+const warriorArrayV2 = [
+  {
+    img: 'images/samurai.png',
+    name: 'Hideyoshi',
+    race: 'human',
+    weapon: 'katana',
+    currentHealth: 100,
+    maxHealth: 100,
+    maxDamage: 20,
+    maxHealing: 30
+  }
+]
 var warriorClan = warriorArray.length;
 
 let nextWarrior = document.getElementById("next-one");
@@ -94,14 +107,14 @@ nextWarrior.addEventListener("click", function(){
     }
  }, 1000); */
 
-// var itemSelect = document.getElementById("selection-player-one-items");
-// var itemButton = itemSelect.getElementsByClassName("item-p1");
-// for (var k = 0; k < itemButton.length; k++) {
-//   itemButton[k].addEventListener("click", function() {
-//   var current = document.getElementsByClassName("active");
-//   if (current.length > 0) { 
-//     current[0].className = current[0].className.replace(" active", "");
-//   }
-//   this.className += " active";
-//   });
-// }
+var itemSelect = document.getElementById("selection-player-one-items");
+var itemButton = itemSelect.getElementsByClassName("item-p1");
+for (var k = 0; k < itemButton.length; k++) {
+  itemButton[k].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  if (current.length > 0) { 
+    current[0].className = current[0].className.replace(" active", "");
+  }
+  this.className += " active";
+  });
+}

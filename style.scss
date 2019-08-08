@@ -7,7 +7,7 @@ body {
     background-image: url(images/boris-yue-9sE-72cYCeI-unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Alfa Slab One', cursive;
     height: 100vh;
 }
 
@@ -53,8 +53,8 @@ body {
                 display: flex;
                 flex-direction: row;
                 .item-p1 {
-                    .active {
-                        
+                    &.active {
+                        border: 1px solid red;
                     }
                 }
                 img {

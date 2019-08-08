@@ -1,15 +1,10 @@
 // let playerOneAttack = Math.floor(Math.random() * Person.maxDamage);
 
 // /*------------------------------------*/
-
+// 
+// CREATION PAGE SCRIPT
+// 
 // Creating an Array for the various character images
-const warriorArray = [
-  "images/samurai.png",
-  "images/troll.png",
-  "images/elf.png",
-  "images/ghoul.png"
-];
-
 const warriorArrayV2 = [
   {
     img: 'images/samurai.png',
@@ -20,7 +15,7 @@ const warriorArrayV2 = [
     maxHealth: 100,
     maxDamage: 20,
     maxHealing: 30,
-    maxDeflect: 22
+    maxDeflect: 25
   },
   {
     img: 'images/troll.png',
@@ -57,53 +52,74 @@ const warriorArrayV2 = [
   }
 ]
 
-let nextWarrior = document.getElementById("next-one");
-let previousWarrior = document.getElementById("previous-one");
+// CREATE AVATAR
+const createWarriorImage = document.createElement('IMG');
+const warriorStats = document.createElement('div');
+const nameHeader = document.createElement('h2');
+let previousP1Warrior = document.getElementById("previous-one");
+let nextP1Warrior = document.getElementById("next-one");
 const p1avatar = document.getElementById("player-one-avatar");
-const imagePlayerOne = document.getElementById("selection-player-one");
-var warriorClan = warriorArray.length;
+// CREATE STATS 
+let p1stats = document.getElementById("selection-player-one-stats");
 
-const createWarrior = document.createElement('IMG');
-var lastWarrior = warriorArray[warriorClan-1];
 
+// Variables of the Main ARRAY
+var warriorClan = warriorArrayV2.length;
+var lastWarrior = warriorArrayV2[warriorClan-1];
+
+// Scroll through Warriors 
 let i = 0;
- 
-previousWarrior.addEventListener("click", function(){
+
+previousP1Warrior.addEventListener("click", function(){
   
   if (i === -1){
-    i = 3; 
-    
+    i = 3;
   }
-  createWarrior.setAttribute("src", warriorArray[i]);
-  createWarrior.setAttribute("class", "warrior");
-  createWarrior.setAttribute("height", "475");
-  createWarrior.setAttribute("alt", "selected warrior");
-  p1avatar.appendChild(createWarrior);
+
+  let warrior = warriorArrayV2[i];
+  let warrior_image = warrior["img"];
+  let warrior_name = warrior["name"];
+  let makeName = document.createTextNode(warrior_name);
+
+  createWarriorImage.setAttribute("src", warrior_image);
+  createWarriorImage.setAttribute("class", "warrior-image");
+  createWarriorImage.setAttribute("height", "375");
+  createWarriorImage.setAttribute("alt", warrior_name);
+  p1avatar.appendChild(createWarriorImage);
+
+  warriorStats.setAttribute("class", "warrior-stats");
+
+  
+  nameHeader.appendChild(makeName);
+  warriorStats.appendChild(nameHeader);
+  p1stats.appendChild(warriorStats);
 
   i -= 1;
-  
+
+  return warriorStats;
 })
 
-nextWarrior.addEventListener("click", function(){
-  
+nextP1Warrior.addEventListener("click", function(){
+
   if (i === 4){
     i = 0;
   }
-  createWarrior.setAttribute("src", warriorArray[i]);
-  createWarrior.setAttribute("class", "warrior");
-  createWarrior.setAttribute("height", "475");
-  createWarrior.setAttribute("alt", "selected warrior");
-  p1avatar.appendChild(createWarrior);
+
+  let warrior = warriorArrayV2[i];
+  let warrior_image = warrior["img"];
+  createWarriorImage.setAttribute("src", warrior_image);
+  createWarriorImage.setAttribute("class", "warrior-image");
+  createWarriorImage.setAttribute("height", "375");
+  createWarriorImage.setAttribute("alt", "selected warrior");
+  p1avatar.appendChild(createWarriorImage);
 
   i += 1;
 })
 
-
+// TEST log for new Array
 warriorArrayV2.forEach(function (item, index, warriorArrayV2) {
   console.log(item, index);
 });
-
-//   boldStuffs[i].innerHTML = fruit.name + '<img src="'+fruit.image+'">';
 
 // ACTIVE/INACTIVE state for Items
 var itemSelect = document.getElementById("selection-player-one-items");
@@ -118,7 +134,7 @@ for (var k = 0; k < itemButton.length; k++) {
   });
 }
 
-// let characterArray = 
+// let characterArray =
 /* TIMER for BATTLE
  var timeleft = 120;
  var downloadTimer = setInterval(function(){
@@ -129,13 +145,3 @@ for (var k = 0; k < itemButton.length; k++) {
      document.getElementById("countdown").innerText = "Time's up !"
     }
  }, 1000); */
-
-//  Log information about the Warrior 
- function LogWarrior() {
-  console.log("Name: " + warrior_name
-  + "\n" + "ID: " + warrior_
-  + "\n" + "Moves:", warrior_moves
-  , "\n" + "Abilities:", warrior_abilities
-  , "\n" + "Image URL: " + warrior_image
-  + "\n" + "Weight: " + warrior_weight);
-}

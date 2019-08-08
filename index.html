@@ -23,29 +23,37 @@
                     <div id="player-one-avatar"></div>
                     <div id="selection-player-one-stats"></div>
                     <div id="selection-player-one-items">
-                        <button class="item-p1 active"><img src="images/damage.png"></button>
-                        <button class="item-p1"><img src="images/potion.png"></button>
-                        <button class="item-p1"><img src="images/lightning.png"></button>
-                        <button class="item-p1"><img src="images/shield.png"></button>
+                      <div class="item-button-container">
+                            <button class="item-p1 active"><img src="images/damage.png"></button>
+                            <button class="item-p1"><img src="images/potion.png"></button>
+                            <button class="item-p1"><img src="images/lightning.png"></button>
+                            <button class="item-p1"><img src="images/shield.png"></button>
+                     </div>
                     </div>
+                    <div id="selection-player-one-stats"></div>
                 </div>
                 <button id="next-one">&gt;</button>
-                <img class="versus" src="images/vs.png">
+                
+                <div class="neon-container">                                  
+                  <p class="neon">V</p>
+                  <p class="flux">S</p>
+                </div>  
+                
                 <!-- player 2 selection -->
                 <button id="previous-two">&lt;</button>
                 <div id="selection-player-two">
                     <div id="player-two-avatar">P2</div>
                     <div id="selection-player-two-stats"></div>
                     <div id="selection-player-two-items">
-                        <button class="item-p2 active"><img src="images/damage.png"></button>
-                        <button class="item-p2"><img src="images/potion.png"></button>
-                        <button class="item-p2"><img src="images/lightning.png"></button>
-                        <button class="item-p2"><img src="images/shield.png"></button>
+                        <button id="damage-info" class="item-p2 active"><img src="images/damage.png"></button>
+                        <button id="mana-info" class="item-p2"><img src="images/potion.png"></button>
+                        <button id="lightning-info" class="item-p2"><img src="images/lightning.png"></button>
+                        <button id="shield-info" class="item-p2"><img src="images/shield.png"></button>
                     </div>
                 </div>
                 <button id="next-two">&gt;</button>
             </div>
-            <button id="start-fight" type="button"><img class="fight button" src="images/fight.png"></button>
+            <button id="start-fight" type="button"><img class="fight button" src="images/maya.png"></button>
         </div> 
         <!-- ACTUAL BATTLE -->
         <div id="battle-scene" name="battle-scene" type="content">

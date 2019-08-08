@@ -1,3 +1,44 @@
+// @font-face {
+//   font-family: neon;
+// //   src: url(BeCode/projects/JavaScript/RPG2.0/_js_rpg/neon.ttf);
+// }
+
+@keyframes anim-glow {
+	0% {
+		box-shadow: 0px 0px rgba(#61EF61, 1);
+    background-color: transparent;
+	}
+	100% {
+		box-shadow: 0px 0px 17px 15px white;
+		border-width: 1px;
+    background-color: none;
+	}
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +52,47 @@ body {
     height: 100vh;
 }
 
+/* Versus Neon */
+
+.neon-container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon {
+  animation: neon 1.5s ease infinite;
+  -moz-animation: neon 1.5s ease infinite;
+  -webkit-animation: neon 1.5s ease infinite;
+}
+
+.flux {
+  animation: flux 1s ease infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 1.5s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+/* End Versus Neon*/
+
+
 .brawl {
-    // CREATION PAGE 
+    // CREATION PAGE
     #selection-page {
         display: flex;
         flex-direction: column;
@@ -51,13 +131,29 @@ body {
             #selection-player-one-items {
                 display: flex;
                 flex-direction: row;
+                .item-button-container {
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  align-items: center;
+                }
                 .item-p1 {
+                  &.active {
+                    box-shadow: 0px 0px 17px 15px white;
+                    border-width: 1px;
+                    border: none;
+                    background-image: radial-gradient(lightblue, white);
+                    animation: anim-glow 1.3s ease;
+                  }
                     &:hover {
-                    }
-                    &.active {
-                    }
+                          animation: anim-glow 1.3s ease infinite;
+                          outline: none;
+                          border: none;
+                          background-image: radial-gradient(lightblue, white);
+                      }
                 }
                 img {
+                    border:none;
                     height: 5vh;
                 }
             }
@@ -76,6 +172,7 @@ body {
                     display: flex;
                     flex-direction: row;
                     button {
+                    
                     }
                     img {
                         height: 5vh;
@@ -88,22 +185,26 @@ body {
                 justify-content: center;
                 align-content: center;
                 margin: 0px 20px 0px 20px;
-                height: 10vh;
-                width: 5vw;
-                border-radius: 50%;
+                height: 5vh;
+                width: 2vw;
+                border-radius: 90%;
                 border: none;
                 color: rgba(4, 255, 0, 0.729);
                 background-color: transparent;
                 z-index: 5;
+                &:focus {
+                outline:0;
+                }
             }
+
         }
         #start-fight {
         background-color: transparent;
         border: none;
-        img {
-        width: 18vw;
-        height: 12vh;
-        }
+            img {
+            width: 10vw;
+            height: 20vh;
+            }
         }
     }
     // BATTLE PAGE
@@ -139,7 +240,7 @@ body {
             grid-template-columns: auto auto auto;
             grid-template-rows: auto;
             grid-template-areas:"1 2 3";
-        
+
         }
-    }
+    } 
 }

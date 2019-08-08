@@ -1,3 +1,79 @@
+@-webkit-keyframes anim-glow {
+  0% {
+    -webkit-box-shadow: 0px 0px #61ef61;
+            box-shadow: 0px 0px #61ef61;
+    background-color: transparent;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 17px 15px white;
+            box-shadow: 0px 0px 17px 15px white;
+    border-width: 1px;
+    background-color: none;
+  }
+}
+
+@keyframes anim-glow {
+  0% {
+    -webkit-box-shadow: 0px 0px #61ef61;
+            box-shadow: 0px 0px #61ef61;
+    background-color: transparent;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 17px 15px white;
+            box-shadow: 0px 0px 17px 15px white;
+    border-width: 1px;
+    background-color: none;
+  }
+}
+
+@-webkit-keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+
+@-webkit-keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +87,43 @@ body {
   height: 100vh;
 }
 
+/* Versus Neon */
+.neon-container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon {
+  animation: neon 1.5s ease infinite;
+  -moz-animation: neon 1.5s ease infinite;
+  -webkit-animation: neon 1.5s ease infinite;
+}
+
+.flux {
+  animation: flux 1s ease infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 1.5s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+/* End Versus Neon*/
 .brawl #selection-page {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -98,7 +211,42 @@ body {
           flex-direction: row;
 }
 
+.brawl #selection-page .characters #selection-player-one-items .item-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brawl #selection-page .characters #selection-player-one-items .item-p1.active {
+  -webkit-box-shadow: 0px 0px 17px 15px white;
+          box-shadow: 0px 0px 17px 15px white;
+  border-width: 1px;
+  border: none;
+  background-image: radial-gradient(lightblue, white);
+  -webkit-animation: anim-glow 1.3s ease;
+          animation: anim-glow 1.3s ease;
+}
+
+.brawl #selection-page .characters #selection-player-one-items .item-p1:hover {
+  -webkit-animation: anim-glow 1.3s ease infinite;
+          animation: anim-glow 1.3s ease infinite;
+  outline: none;
+  border: none;
+  background-image: radial-gradient(lightblue, white);
+}
+
 .brawl #selection-page .characters #selection-player-one-items img {
+  border: none;
   height: 5vh;
 }
 
@@ -149,13 +297,17 @@ body {
   -ms-flex-line-pack: center;
       align-content: center;
   margin: 0px 20px 0px 20px;
-  height: 10vh;
-  width: 5vw;
-  border-radius: 50%;
+  height: 5vh;
+  width: 2vw;
+  border-radius: 90%;
   border: none;
   color: rgba(4, 255, 0, 0.729);
   background-color: transparent;
   z-index: 5;
+}
+
+.brawl #selection-page .characters button:focus {
+  outline: 0;
 }
 
 .brawl #selection-page #start-fight {
@@ -164,8 +316,8 @@ body {
 }
 
 .brawl #selection-page #start-fight img {
-  width: 18vw;
-  height: 12vh;
+  width: 10vw;
+  height: 20vh;
 }
 
 .brawl #battle-scene {

@@ -19,18 +19,53 @@ const warriorArrayV2 = [
     currentHealth: 100,
     maxHealth: 100,
     maxDamage: 20,
-    maxHealing: 30
+    maxHealing: 30,
+    maxDeflect: 22
+  },
+  {
+    img: 'images/troll.png',
+    name: 'Zulabar',
+    race: 'troll',
+    weapon: 'Menhir',
+    currentHealth: 150,
+    maxHealth: 150,
+    maxDamage: 30,
+    maxHealing: 15,
+    maxDeflect: 10
+  },
+  {
+    img: 'images/elf.png',
+    name: 'Ferndihl',
+    race: 'Elf',
+    weapon: 'Longbow',
+    currentHealth: 150,
+    maxHealth: 100,
+    maxDamage: 15,
+    maxHealing: 20,
+    maxDeflect: 35
+  },
+  {
+    img: 'images/ghoul.png',
+    name: 'Boris',
+    race: 'Undead',
+    weapon: 'Necromance',
+    currentHealth: 120,
+    maxHealth: 120,
+    maxDamage: 15,
+    maxHealing: 40,
+    maxDeflect: 15
   }
 ]
-var warriorClan = warriorArray.length;
 
 let nextWarrior = document.getElementById("next-one");
 let previousWarrior = document.getElementById("previous-one");
 const p1avatar = document.getElementById("player-one-avatar");
 const imagePlayerOne = document.getElementById("selection-player-one");
+var warriorClan = warriorArray.length;
 
 const createWarrior = document.createElement('IMG');
 var lastWarrior = warriorArray[warriorClan-1];
+
 let i = 0;
  
 previousWarrior.addEventListener("click", function(){
@@ -41,7 +76,7 @@ previousWarrior.addEventListener("click", function(){
   }
   createWarrior.setAttribute("src", warriorArray[i]);
   createWarrior.setAttribute("class", "warrior");
-  createWarrior.setAttribute("height", "575");
+  createWarrior.setAttribute("height", "475");
   createWarrior.setAttribute("alt", "selected warrior");
   p1avatar.appendChild(createWarrior);
 
@@ -56,44 +91,32 @@ nextWarrior.addEventListener("click", function(){
   }
   createWarrior.setAttribute("src", warriorArray[i]);
   createWarrior.setAttribute("class", "warrior");
-  createWarrior.setAttribute("height", "575");
+  createWarrior.setAttribute("height", "475");
   createWarrior.setAttribute("alt", "selected warrior");
   p1avatar.appendChild(createWarrior);
 
   i += 1;
 })
 
-// if (warriorArray.indexOf(lastWarrior) > -1) {
-//   // return;
-// }
 
-// var header = document.getElementById("myDIV");
-// var btns = header.getElementsByClassName("btn");
-// for (var i = 0; i < btns.length; i++) {
-//   btns[i].addEventListener("click", function() {
-//   var current = document.getElementsByClassName("active");
-//   if (current.length > 0) { 
-//     current[0].className = current[0].className.replace(" active", "");
-//   }
-//   this.className += " active";
-//   });
-// }
+warriorArrayV2.forEach(function (item, index, warriorArrayV2) {
+  console.log(item, index);
+});
 
+//   boldStuffs[i].innerHTML = fruit.name + '<img src="'+fruit.image+'">';
 
-
-
-
-// let previousP1 = document.getElementById("previous-p1");
-// let nextP1 = document.getElementById("next-p1");
-
-// previousP1.addEventListener("click", function (){
-//   console.log('prev')
-// });
-
-// nextP1.addEventListener("click", function (){
-//   console.log('next')
-// });
-// console.log(warriorArray);
+// ACTIVE/INACTIVE state for Items
+var itemSelect = document.getElementById("selection-player-one-items");
+var itemButton = itemSelect.getElementsByClassName("item-p1");
+for (var k = 0; k < itemButton.length; k++) {
+  itemButton[k].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  if (current.length > 0) { 
+    current[0].className = current[0].className.replace(" active", "");
+  }
+  this.className += " active";
+  });
+}
 
 // let characterArray = 
 /* TIMER for BATTLE
@@ -107,14 +130,12 @@ nextWarrior.addEventListener("click", function(){
     }
  }, 1000); */
 
-var itemSelect = document.getElementById("selection-player-one-items");
-var itemButton = itemSelect.getElementsByClassName("item-p1");
-for (var k = 0; k < itemButton.length; k++) {
-  itemButton[k].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  if (current.length > 0) { 
-    current[0].className = current[0].className.replace(" active", "");
-  }
-  this.className += " active";
-  });
+//  Log information about the Warrior 
+ function LogWarrior() {
+  console.log("Name: " + warrior_name
+  + "\n" + "ID: " + warrior_
+  + "\n" + "Moves:", warrior_moves
+  , "\n" + "Abilities:", warrior_abilities
+  , "\n" + "Image URL: " + warrior_image
+  + "\n" + "Weight: " + warrior_weight);
 }

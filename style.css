@@ -77,17 +77,15 @@ body {
   width: 20vw;
 }
 
-.brawl #selection-page .characters h3 {
+.brawl #selection-page .characters #selection-player-one #player-one-avatar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .brawl #selection-page .characters #selection-player-one-items {
@@ -98,10 +96,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-}
-
-.brawl #selection-page .characters #selection-player-one-items .item-p1.active {
-  border: 1px solid red;
 }
 
 .brawl #selection-page .characters #selection-player-one-items img {
@@ -137,10 +131,6 @@ body {
           flex-direction: row;
 }
 
-.brawl #selection-page .characters #selection-player-two #selection-player-two-items button {
-  display: block;
-}
-
 .brawl #selection-page .characters #selection-player-two #selection-player-two-items img {
   height: 5vh;
 }
@@ -163,8 +153,9 @@ body {
   width: 5vw;
   border-radius: 50%;
   border: none;
-  color: white;
+  color: rgba(4, 255, 0, 0.729);
   background-color: transparent;
+  z-index: 5;
 }
 
 .brawl #selection-page #start-fight {

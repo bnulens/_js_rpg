@@ -40,21 +40,21 @@ body {
             #selection-player-one {
                 display: flex;
                 flex-direction: column;
-                // border: 1px solid red;
                 height: 60vh;
                 width: 20vw;
-            }
-            h3 {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
+                #player-one-avatar{
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                }
             }
             #selection-player-one-items {
                 display: flex;
                 flex-direction: row;
                 .item-p1 {
+                    &:hover {
+                    }
                     &.active {
-                        border: 1px solid red;
                     }
                 }
                 img {
@@ -76,7 +76,6 @@ body {
                     display: flex;
                     flex-direction: row;
                     button {
-                        display: block;
                     }
                     img {
                         height: 5vh;
@@ -93,8 +92,9 @@ body {
                 width: 5vw;
                 border-radius: 50%;
                 border: none;
-                color: white;
+                color: rgba(4, 255, 0, 0.729);
                 background-color: transparent;
+                z-index: 5;
             }
         }
         #start-fight {

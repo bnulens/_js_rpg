@@ -32,36 +32,38 @@ const imagePlayerOne = document.getElementById("selection-player-one");
 const createWarrior = document.createElement('IMG');
 var lastWarrior = warriorArray[warriorClan-1];
 let i = 0;
- 
+
 previousWarrior.addEventListener("click", function(){
-  
+
   if (i === -1){
-    i = 3; 
-    
+    i = 3;
+
   }
   createWarrior.setAttribute("src", warriorArray[i]);
   createWarrior.setAttribute("class", "warrior");
-  createWarrior.setAttribute("height", "575");
+  createWarrior.setAttribute("height", "375");
   createWarrior.setAttribute("alt", "selected warrior");
   p1avatar.appendChild(createWarrior);
 
   i -= 1;
-  
+
 })
 
 nextWarrior.addEventListener("click", function(){
-  
+
   if (i === 4){
     i = 0;
   }
   createWarrior.setAttribute("src", warriorArray[i]);
   createWarrior.setAttribute("class", "warrior");
-  createWarrior.setAttribute("height", "575");
+  createWarrior.setAttribute("height", "375");
   createWarrior.setAttribute("alt", "selected warrior");
   p1avatar.appendChild(createWarrior);
 
   i += 1;
 })
+
+
 
 // if (warriorArray.indexOf(lastWarrior) > -1) {
 //   // return;
@@ -72,7 +74,7 @@ nextWarrior.addEventListener("click", function(){
 // for (var i = 0; i < btns.length; i++) {
 //   btns[i].addEventListener("click", function() {
 //   var current = document.getElementsByClassName("active");
-//   if (current.length > 0) { 
+//   if (current.length > 0) {
 //     current[0].className = current[0].className.replace(" active", "");
 //   }
 //   this.className += " active";
@@ -95,7 +97,7 @@ nextWarrior.addEventListener("click", function(){
 // });
 // console.log(warriorArray);
 
-// let characterArray = 
+// let characterArray =
 /* TIMER for BATTLE
  var timeleft = 120;
  var downloadTimer = setInterval(function(){
@@ -112,7 +114,7 @@ var itemButton = itemSelect.getElementsByClassName("item-p1");
 for (var k = 0; k < itemButton.length; k++) {
   itemButton[k].addEventListener("click", function() {
   var current = document.getElementsByClassName("active");
-  if (current.length > 0) { 
+  if (current.length > 0) {
     current[0].className = current[0].className.replace(" active", "");
   }
   this.className += " active";

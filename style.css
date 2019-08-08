@@ -1,3 +1,38 @@
+@font-face {
+  font-family: neon;
+  src: url(BeCode/projects/JavaScript/RPG2.0/_js_rpg/neon.ttf);
+}
+@keyframes anim-glow {
+  0% {
+    box-shadow: 0px 0px #61ef61;
+    background-color: transparent;
+  }
+  100% {
+    box-shadow: 0px 0px 17px 15px white;
+    border-width: 1px;
+    background-color: none;
+  }
+}
+@keyframes flux {
+  0%, 100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 0.4vw #8BFDFE, 0.5vw 0.5vw 0.1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 0.2vw #082180, 0.5vw 0.5vw 0.1vw #0A3940;
+    color: #146C80;
+  }
+}
+@keyframes neon {
+  0%, 100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 0.4vw #FED128, 0.5vw 0.5vw 0.1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 0.2vw #800E0B, 0.5vw 0.5vw 0.1vw #40340A;
+    color: #806914;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -7,233 +42,187 @@ body {
   background-image: url(images/boris-yue-9sE-72cYCeI-unsplash.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Alfa Slab One', cursive;
+  font-family: "Alfa Slab One", cursive;
   height: 100vh;
 }
 
+/* Versus Neon */
+.neon-container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon {
+  animation: neon 1.5s ease infinite;
+  -moz-animation: neon 1.5s ease infinite;
+  -webkit-animation: neon 1.5s ease infinite;
+}
+
+.flux {
+  animation: flux 1s ease infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 1.5s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+/* End Versus Neon*/
 .brawl #selection-page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 73, 115, 0.814)), to(#341100cc)), url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
   background-image: linear-gradient(to bottom, rgba(0, 73, 115, 0.814), #341100cc), url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
 }
-
 .brawl #selection-page .title {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
-
 .brawl #selection-page .characters {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
 }
-
 .brawl #selection-page .characters #selection-player-one {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   height: 60vh;
   width: 20vw;
 }
-
 .brawl #selection-page .characters h3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  align-items: center;
 }
-
 .brawl #selection-page .characters #selection-player-one-items {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
+.brawl #selection-page .characters #selection-player-one-items .item-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .brawl #selection-page .characters #selection-player-one-items .item-p1.active {
-  border: 1px solid red;
+  box-shadow: 0px 0px 17px 15px white;
+  border-width: 1px;
+  background-image: radial-gradient(lightblue, white);
+  animation: anim-glow 1.3s ease;
 }
-
+.brawl #selection-page .characters #selection-player-one-items .item-p1:hover {
+  animation: anim-glow 1.3s ease infinite;
+  outline: none;
+  background-image: radial-gradient(lightblue, white);
+}
 .brawl #selection-page .characters #selection-player-one-items img {
   height: 5vh;
 }
-
 .brawl #selection-page .characters .versus {
   height: 25vh;
   width: 8vw;
   margin-top: 20vh;
 }
-
 .brawl #selection-page .characters #selection-player-two {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   border: 1px solid red;
   height: 60vh;
   width: 20vw;
 }
-
 .brawl #selection-page .characters #selection-player-two #selection-player-two-items {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
 .brawl #selection-page .characters #selection-player-two #selection-player-two-items button {
   display: block;
 }
-
 .brawl #selection-page .characters #selection-player-two #selection-player-two-items img {
   height: 5vh;
 }
-
 .brawl #selection-page .characters button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
   margin: 0px 20px 0px 20px;
-  height: 10vh;
-  width: 5vw;
-  border-radius: 50%;
+  height: 5vh;
+  width: 2vw;
+  border-radius: 90%;
   border: none;
   color: white;
   background-color: transparent;
 }
-
+.brawl #selection-page .characters button:focus {
+  outline: 0;
+}
 .brawl #selection-page #start-fight {
   background-color: transparent;
   border: none;
 }
-
 .brawl #selection-page #start-fight img {
-  width: 18vw;
-  height: 12vh;
+  width: 10vw;
+  height: 20vh;
 }
-
 .brawl #battle-scene {
   width: 100%;
   height: 100%;
 }
-
 .brawl #battle-scene #countdown {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  justify-content: center;
+  align-content: center;
 }
-
 .brawl #battle-scene .head-up-display {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-item-align: center;
-      align-self: center;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
   margin-top: 10px;
 }
-
 .brawl #battle-scene .battle-ground {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 50vh;
-      grid-template-rows: 50vh;
-      grid-template-areas: " . [playerOne] playerTwo . ";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50vh;
+  grid-template-areas: " . [playerOne] playerTwo . ";
 }
-
 .brawl #battle-scene .battle-ground #playerOne {
   grid-area: "playerOne";
 }
-
 .brawl #battle-scene .battle-ground #playerTwo {
   grid-area: "playerTwo";
 }
-
 .brawl #battle-scene .player-moves {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-      grid-template-areas: "1 2 3";
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas: "1 2 3";
 }
+
 /*# sourceMappingURL=style.css.map */

@@ -4,7 +4,7 @@ export default function Person(race,item){
     this.item = item;
     this.currenthealth = 100;
     this.maxHealth = 100;
-    
+
     this.min = 3;
     this.maxDamage = 20;
     this.maxHealing = 30;

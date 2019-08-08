@@ -30,7 +30,11 @@
                             <button class="item-p1"><img src="images/shield.png"></button>
                      </div>
                     </div>
-                    <div id="selection-player-one-stats"></div>
+                    <div id="selection-player-one-stats">
+                      <progress id="health-bar" value="75" max="100"></progress>
+                      
+
+                    </div>
                 </div>
                 <button id="next-one">&gt;</button>
                 
@@ -53,8 +57,11 @@
                 </div>
                 <button id="next-two">&gt;</button>
             </div>
+            <div class="start-fight-main">
+                          
             <button id="start-fight" type="button"><img class="fight button" src="images/maya.png"></button>
-        </div> 
+            </div>
+        </div>
         <!-- ACTUAL BATTLE -->
         <div id="battle-scene" name="battle-scene" type="content">
             <div id="countdown"></div>
@@ -70,20 +77,29 @@
                 <div id="player-two">img-P2</div>
             </div>
             <!-- Where the playermoves are available  -->
+            <div class="player-moves-container">              
+              
             <div class="player-moves" type="content">
                 <div id="player-one-moves">
-                    <button id="attack">Attacc</button>
+                    <button class="btn1 draw-border" id="attack">ATTACK</button>
                     <button id="heal">Heal</button>
                     <button id="counter">Counter</button>
                 </div>
-                <div id="player-actions">log</div>
+                
+                <div class="player-actions-container">
+                <div class="player-actions-bar">                                              
+                <div id="player-actions">log log log !</div> 
+              
+                </div>
+                </div>
                 <div id="player-two-moves">
-                    <button id="attack">Attacc</button>
+                    <button id="attack">ATTACK</button>
                     <button id="heal">Heal</button>
                     <button id="counter">Counter</button>
                 </div>
             </div>
         </div>
+      </div>  
     </div>
 <script src="battle.js"></script>
 </body>

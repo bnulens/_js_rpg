@@ -74,6 +74,42 @@
   }
 }
 
+.neon-container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  /* End Versus Neon*/
+}
+
+.neon-container .neon {
+  font-family: "neon";
+  color: #FB4264;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #F40A35;
+}
+
+.neon-container .flux {
+  font-family: "neon";
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon-container .neon {
+  animation: neon 1.5s ease infinite;
+  -moz-animation: neon 1.5s ease infinite;
+  -webkit-animation: neon 1.5s ease infinite;
+}
+
+.neon-container .flux {
+  animation: flux 1s ease infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 1.5s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
 /* FIRE */
 * {
   margin: 0;
@@ -88,43 +124,6 @@ body {
   height: 100vh;
 }
 
-/* Versus Neon */
-.neon-container {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.neon {
-  font-family: "neon";
-  color: #FB4264;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #F40A35;
-}
-
-.flux {
-  font-family: "neon";
-  color: #426DFB;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #2356FF;
-}
-
-.neon {
-  animation: neon 1.5s ease infinite;
-  -moz-animation: neon 1.5s ease infinite;
-  -webkit-animation: neon 1.5s ease infinite;
-}
-
-.flux {
-  animation: flux 1s ease infinite;
-  -moz-animation: flux 2s linear infinite;
-  -webkit-animation: flux 1.5s linear infinite;
-  -o-animation: flux 2s linear infinite;
-}
-
-/* End Versus Neon*/
 .brawl {
   /* ATTACK BUTTON STYLING */
   /* HEAL BUTTON STYLING */
@@ -254,12 +253,6 @@ body {
   height: 5vh;
 }
 
-.brawl #selection-page .characters .versus {
-  height: 25vh;
-  width: 8vw;
-  margin-top: 20vh;
-}
-
 .brawl #selection-page .characters #selection-player-two {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -362,7 +355,7 @@ body {
       grid-template-columns: 1fr 1fr;
   -ms-grid-rows: 50vh;
       grid-template-rows: 50vh;
-      grid-template-areas: " . [playerOne] playerTwo . ";
+      grid-template-areas: " . playerOne playerTwo . ";
 }
 
 .brawl #selection-page #battle-scene .battle-ground #playerOne {

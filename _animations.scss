@@ -1,0 +1,46 @@
+@mixin item-buttons {
+    &.active {
+        box-shadow: 0px 0px 17px 15px purple;
+        border-width: 1px;
+        background-image: radial-gradient(lightblue, purple);
+        animation: anim-glow 1.3s ease;
+      }
+      &:hover {
+        animation: anim-glow 1.3s ease infinite;
+        outline: none;
+        background-image: radial-gradient(lightblue, purple);
+    }
+}
+
+@mixin neon-versus {
+  
+  .neon {
+    font-family: "neon";
+    color: #FB4264;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #F40A35;
+  }
+  
+  .flux {
+    font-family: "neon";
+    color: #426DFB;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #2356FF;
+  }
+  
+  .neon {
+    animation: neon 1.5s ease infinite;
+    -moz-animation: neon 1.5s ease infinite;
+    -webkit-animation: neon 1.5s ease infinite;
+  }
+  
+  .flux {
+    animation: flux 1s ease infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 1.5s linear infinite;
+    -o-animation: flux 2s linear infinite;
+  }
+  /* End Versus Neon*/
+}

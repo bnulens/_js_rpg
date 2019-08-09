@@ -1,7 +1,4 @@
-// @font-face {
-//   font-family: neon;
-// //   src: url(BeCode/projects/JavaScript/RPG2.0/_js_rpg/neon.ttf);
-// }
+@import '_animations';
 
 /* ITEMS GLOW */
 @keyframes anim-glow {
@@ -39,9 +36,15 @@
     color: #806914;
   }
 }
+
+.neon-container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  @include neon-versus;
+}
+
 /* FIRE */
-
-
 * {
     margin: 0;
     padding: 0;
@@ -55,192 +58,135 @@ body {
     font-family: 'Alfa Slab One', cursive;
     height: 100vh;
 }
-
-
-
-/* Versus Neon */
-
-.neon-container {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.neon {
-  font-family: "neon";
-  color: #FB4264;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #F40A35;
-}
-
-.flux {
-  font-family: "neon";
-  color: #426DFB;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #2356FF;
-}
-
-.neon {
-  animation: neon 1.5s ease infinite;
-  -moz-animation: neon 1.5s ease infinite;
-  -webkit-animation: neon 1.5s ease infinite;
-}
-
-.flux {
-  animation: flux 1s ease infinite;
-  -moz-animation: flux 2s linear infinite;
-  -webkit-animation: flux 1.5s linear infinite;
-  -o-animation: flux 2s linear infinite;
-}
-/* End Versus Neon*/
-
 .brawl {
-    // CREATION PAGE
-    #selection-page {
+  // CREATION PAGE
+  #selection-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(0, 73, 115, 0.814), #341100cc),url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;
+      .title {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+      }
+      .characters {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(to bottom, rgba(0, 73, 115, 0.814), #341100cc),url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        color: white;
-        .title {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        .characters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: center;
-            #selection-player-one {
-                display: flex;
-                flex-direction: column;
-                height: 60vh;
-                width: 20vw;
-                #player-one-avatar{
-                    display: flex;
-                    justify-content: center;
-                    align-content: center;
-                }
-            }
-            #selection-player-one-items {
-                display: flex;
-                flex-direction: row;
-                .item-button-container {
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: center;
-                  align-items: center;
-                }
-                .item-p1 {
-                  &.active {
-                    box-shadow: 0px 0px 17px 15px purple;
-                		border-width: 1px;
-                    background-image: radial-gradient(lightblue, purple);
-                    animation: anim-glow 1.3s ease;
-                  }
-                    &:hover {
-                          animation: anim-glow 1.3s ease infinite;
-                          outline: none;
-                          background-image: radial-gradient(lightblue, purple);
-                      }
-                }
-                img {
-                    border:none;
-                    height: 5vh;
-                }
-            }
-            .versus {
-                height: 25vh;
-                width: 8vw;
-                margin-top: 20vh;
-            }
-            #selection-player-two {
-                display: flex;
-                flex-direction: column;
-                height: 60vh;
-                width: 20vw;
-                #selection-player-two-items {
-                    display: flex;
-                    flex-direction: row;
-                    img {
-                        height: 5vh;
-                    }
-                }
-            }
-            button {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-content: center;
-                margin: 0px 20px 0px 20px;
-                height: 5vh;
-                width: 2vw;
-                border-radius: 90%;
-                border: none;
-                color: rgba(4, 255, 0, 0.729);
-                background-color: transparent;
-                z-index: 5;
-                &:focus {
-                outline:0;
-                }
-            }
-
-        }
-        #start-fight {
-        background-color: transparent;
-        border: none;
-            img {
-            width: 10vw;
-            height: 20vh;
-            }
-        }
-    // BATTLE PAGE
-    #battle-scene {
-        width: 100%;
-        height: 100%;
-        #countdown {
+        align-content: center;
+        #selection-player-one {
+          display: flex;
+          flex-direction: column;
+          height: 60vh;
+          width: 20vw;
+          #player-one-avatar{
             display: flex;
             justify-content: center;
             align-content: center;
+          }
         }
-        .head-up-display {
+        #selection-player-one-items {
+          display: flex;
+          flex-direction: row;
+          .item-button-container {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-self: center;
-            margin-top: 10px;
-        }
-        .battle-ground {
-            display: grid;
-            grid-template-columns:  1fr 1fr;
-            grid-template-rows: 50vh;
-            grid-template-areas:" . [playerOne] playerTwo . ";
-            #playerOne {
-                grid-area: "playerOne";
+            align-items: center;
+          }
+          .item-p1 {
+            @include item-buttons;
+          }
+          img {
+            border:none;
+            height: 5vh;
+          }
+         }
+        #selection-player-two {
+          display: flex;
+          flex-direction: column;
+          height: 60vh;
+          width: 20vw;
+          #selection-player-two-items {
+            display: flex;
+            flex-direction: row;
+            img {
+              height: 5vh;
             }
-            #playerTwo {
-                grid-area: "playerTwo";
-            }
+          }
+         }
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        margin: 0px 20px 0px 20px;
+        height: 5vh;
+        width: 2vw;
+        border-radius: 90%;
+        border: none;
+        color: rgba(4, 255, 0, 0.729);
+        background-color: transparent;
+        z-index: 5;
+        &:focus {
+        outline:0;
         }
-        .player-moves {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-template-rows: auto;
-            grid-template-areas:"1 2 3";
+      }
+    }
+  #start-fight {
+  background-color: transparent;
+  border: none;
+    img {
+    width: 10vw;
+    height: 20vh;
+    }
+  }
+  // BATTLE PAGE
+  #battle-scene {
+      width: 100%;
+      height: 100%;
+      #countdown {
+          display: flex;
+          justify-content: center;
+          align-content: center;
+      }
+      .head-up-display {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-self: center;
+          margin-top: 10px;
+      }
+      .battle-ground {
+          display: grid;
+          grid-template-columns:  1fr 1fr;
+          grid-template-rows: 50vh;
+          grid-template-areas:" . playerOne playerTwo . ";
+          #playerOne {
+              grid-area: "playerOne";
+          }
+          #playerTwo {
+              grid-area: "playerTwo";
+          }
+      }
+      .player-moves {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+        grid-template-areas:"1 2 3";
 
-        }
-    } 
+      }
+  } 
 }
 
 .player-moves-container {

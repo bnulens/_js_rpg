@@ -127,15 +127,28 @@ function getWarriorImage(){
 // }
 
 // TEST log for new Array
-warriorArray.forEach(function (item, index, warriorArray) {
-  console.log(item, index);
-});
+// warriorArray.forEach(function (item, index, warriorArray) {
+//   console.log(item, index);
+// });
+// 
 
 // ACTIVE/INACTIVE state for Items
 var itemSelect = document.getElementById("selection-player-one-items");
-var itemButton = itemSelect.getElementsByClassName("item-p1");
-for (var k = 0; k < itemButton.length; k++) {
-  itemButton[k].addEventListener("click", function() {
+var itemButtons = itemSelect.getElementsByClassName("item-p1");
+for (var k = 0; k < itemButtons.length; k++) {
+  itemButtons[k].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  if (current.length > 0) { 
+    current[0].className = current[0].className.replace(" active", "");
+  }
+  this.className += " active";
+  });
+}
+
+var itemSelectV2 = document.getElementById("selection-player-two-items");
+var itemButtonsV2 = itemSelect.getElementsByClassName("item-p2");
+for (var l = 0; l < itemButtonsV2.length; l++) {
+  itemButtonsV2[l].addEventListener("click", function() {
   var current = document.getElementsByClassName("active");
   if (current.length > 0) { 
     current[0].className = current[0].className.replace(" active", "");

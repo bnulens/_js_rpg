@@ -168,15 +168,11 @@ body {
             #selection-player-two {
                 display: flex;
                 flex-direction: column;
-                border: 1px solid red;
                 height: 60vh;
                 width: 20vw;
                 #selection-player-two-items {
                     display: flex;
                     flex-direction: row;
-                    button {
-                    
-                    }
                     img {
                         height: 5vh;
                     }

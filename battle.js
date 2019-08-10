@@ -5,6 +5,7 @@
 // CREATION PAGE SCRIPT
 // 
 // Creating an Array for the various character images
+
 const warriorArray = [
   {
     img: 'images/samurai.png',
@@ -52,100 +53,106 @@ const warriorArray = [
   }
 ]
 
-// CREATE AVATAR
-const createWarriorImage = document.createElement('IMG');
-const warriorStats = document.createElement('div');
-const nameHeader = document.createElement('h2');
-const createWarriorName = document.createElement('div');
+// Players
+let player1 = {}
+let player2 = {}
 
-let previousP1Warrior = document.getElementById("previous-one");
-let nextP1Warrior = document.getElementById("next-one");
+// Get elements we will need
 const p1avatar = document.getElementById("player-one-avatar");
 const p2avatar = document.getElementById("player-two-avatar");
-// CREATE STATS 
-let p1stats = document.getElementById("selection-player-one-stats");
 
+const p1stats = document.getElementById("selection-player-one-stats");
+const p2stats = document.getElementById("selection-player-two-stats");
 
-// Variables of the Main ARRAY
-var warriorClan = warriorArray.length;
-var lastWarrior = warriorArray[warriorClan-1];
-var firstWarrior = warriorArray[warriorClan[0]];
-
-// Scroll through Warriors 
-let i = 0;
+// To scroll through Warriors 
+let warriorIndex = 0;
 
 document.addEventListener('click', function(e){
   if (e.target.matches("#previous-one")){
-    displayWarrior()
-    i -= 1;
-    if (i === -1){
-      i = 3;
+    displayWarrior(p1stats, p1avatar, 'player-one')
+    warriorIndex -= 1;
+    if (warriorIndex === -1){
+      warriorIndex = 3;
     } 
   } if (e.target.matches("#next-one")){
-    displayWarrior()
-    i += 1;
-    if (i === 4){
-      i = 0;
+    displayWarrior(p1stats, p1avatar, 'player-one')
+    warriorIndex += 1;
+    if (warriorIndex === 4){
+      warriorIndex = 0;
     } 
   }
 });
 
-document.addEventListener('click', function(f){
-  if (f.target.matches("#previous-two")){
-    displayWarrior()
-    i -= 1;
-    if (i === -1){
-      i = 3;
+document.addEventListener('click', function(e){
+  if (e.target.matches("#previous-two")){
+    displayWarrior(p2stats, p2avatar, 'player-two')
+    warriorIndex -= 1;
+    if (warriorIndex === -1){
+      warriorIndex = 3;
     }
-  } if (f.target.matches("#next-two")){
-    displayWarrior()
-    i += 1;
-    if (i === 4){
-      i = 0;
+  } if (e.target.matches("#next-two")){
+    displayWarrior(p2stats, p2avatar, 'player-two')
+    warriorIndex += 1;
+    if (warriorIndex === 4){
+      warriorIndex = 0;
     } 
   }
 });
 
-function displayWarrior() {
-  if (p1stats.childNodes.length > 0) {
-    p1stats.removeChild(p1stats.childNodes[0]);
+function displayWarrior(statsNode, avatarNode, player) {
+  if (statsNode.childNodes.length > 0) {
+    statsNode.removeChild(statsNode.childNodes[0]);
+    avatarNode.removeChild(avatarNode.childNodes[0]);
   }
-  var warriorImage = getWarriorImage();
+
+  var warriorImage = setWarriorImage(player);
   var warriorInfo = getWarriorInfo();
 
-  p1avatar.appendChild(createWarriorImage);
-  p1stats.appendChild(warriorInfo);
-  p2avatar.innerHTML = p1avatar.innerHTML;
+  avatarNode.appendChild(warriorImage);
+  statsNode.appendChild(warriorInfo);
 }
 
-function getWarriorImage(){
-
-  let warrior = warriorArray[i];
+function setWarriorImage(player){
+  let warrior = warriorArray[warriorIndex];
   let warrior_image = warrior["img"];
-  createWarriorImage.setAttribute("src", warrior_image);
-  createWarriorImage.setAttribute("class", "warrior-image");
-  createWarriorImage.setAttribute("height", "425");
-  createWarriorImage.setAttribute("alt", "selected warrior");
+  
+  if (player === 'player-one') {
+    player1 = warrior;
+    console.log('player1', player1);
+  } else {
+    player2 = warrior;
+    console.log('player2', player2);
+  }
+
+  let img = document.createElement('IMG');
+  img.setAttribute("src", warrior_image);
+  img.setAttribute("class", "warrior-image");
+  img.setAttribute("height", "425");
+  img.setAttribute("alt", "selected warrior");
+
+  return img;
 }
 
 function getWarriorInfo() {
   // create the elements we want to add
   var div = document.createElement("div");
+  div.setAttribute("class", "warrior-stats");
+
   var header = document.createElement('h2');
   var raceStat = document.createElement("P");
-  var healthStat = document.createElement("P");
-  var maxHealthStat = document.createElement("P");
-  var deflectStat = document.createElement("P");
-  
-  // add classes for styling
-  div.setAttribute("class", "warrior-stats");
   raceStat.setAttribute("class", "race");
+
+  var healthStat = document.createElement("P");
   healthStat.setAttribute("class", "health");
+
+  var maxHealthStat = document.createElement("P");
   maxHealthStat.setAttribute("class", "max-health");
+
+  var deflectStat = document.createElement("P");
   deflectStat.setAttribute("class", "deflect");
   
   // collect the info we want to display
-  let warrior = warriorArray[i];
+  let warrior = warriorArray[warriorIndex];
   var warriorName = document.createTextNode(`${warrior.name}` + "\n");
   var warriorRace = document.createTextNode(` race: ${warrior.race} `);
   var warriorHealth = document.createTextNode(` HP ${warrior.maxHealth} `);
@@ -165,8 +172,6 @@ function getWarriorInfo() {
   div.appendChild(warriorHealth);
   div.appendChild(warriorMaxHealth);
   div.appendChild(warriorDeflect);
-
-  p1stats.appendChild(div);
   
   return div;
 }
@@ -212,3 +217,16 @@ for (var l = 0; l < itemButtonsV2.length; l++) {
      document.getElementById("countdown").innerText = "Time's up !"
     }
  }, 1000); */
+
+function randomizeWarriorIndex() {
+  const oldIndex = warriorIndex;
+  warriorIndex = Math.floor(Math.random() * warriorArray.length);
+}
+
+//  randomize i to get a random character for player 1 at initial page load
+randomizeWarriorIndex();
+displayWarrior(p1stats, p1avatar, 'player-one');
+
+//  randomize i again, to get a random character for player 2 at initial page load
+randomizeWarriorIndex();
+displayWarrior(p2stats, p2avatar, 'player-two');

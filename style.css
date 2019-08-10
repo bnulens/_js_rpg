@@ -82,7 +82,7 @@
 }
 
 .neon-container .neon {
-  font-family: "neon";
+  font-family: 'Lacquer', sans-serif;
   color: #FB4264;
   font-size: 9vw;
   line-height: 9vw;
@@ -90,7 +90,7 @@
 }
 
 .neon-container .flux {
-  font-family: "neon";
+  font-family: 'Lacquer', sans-serif;
   color: #426DFB;
   font-size: 9vw;
   line-height: 9vw;
@@ -125,6 +125,8 @@ body {
 }
 
 .brawl {
+  height: 100%;
+  width: 100%;
   /* ATTACK BUTTON STYLING */
   /* HEAL BUTTON STYLING */
 }
@@ -191,8 +193,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 60vh;
-  width: 20vw;
+  height: 65vh;
+  width: 18vw;
 }
 
 .brawl #selection-page .characters #selection-player-one #player-one-avatar {
@@ -204,19 +206,31 @@ body {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+  height: 50vh;
+  border-top-left-radius: 20%;
+  border-top-right-radius: 20%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2e2a1931), to(#2e2a190f));
+  background-image: linear-gradient(#2e2a1931, #2e2a190f);
 }
 
-.brawl #selection-page .characters #selection-player-one-items {
+.brawl #selection-page .characters #selection-player-one #selection-player-one-stats {
+  height: 100%;
+}
+
+.brawl #selection-page .characters #selection-player-one #selection-player-one-stats .warrior-stats {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.brawl #selection-page .characters #selection-player-one-items .item-button-container {
+.brawl #selection-page .characters #selection-player-one #selection-player-one-items .item-button-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,9 +244,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 10px;
 }
 
-.brawl #selection-page .characters #selection-player-one-items .item-p1.active {
+.brawl #selection-page .characters #selection-player-one #selection-player-one-items .item-p1.active {
   -webkit-box-shadow: 0px 0px 17px 15px purple;
           box-shadow: 0px 0px 17px 15px purple;
   border-width: 1px;
@@ -241,16 +256,31 @@ body {
           animation: anim-glow 1.3s ease;
 }
 
-.brawl #selection-page .characters #selection-player-one-items .item-p1:hover {
+.brawl #selection-page .characters #selection-player-one #selection-player-one-items .item-p1.active2 {
+  -webkit-box-shadow: 0px 0px 17px 15px purple;
+          box-shadow: 0px 0px 17px 15px purple;
+  border-width: 1px;
+  background-image: radial-gradient(lightblue, purple);
+  -webkit-animation: anim-glow 1.3s ease;
+          animation: anim-glow 1.3s ease;
+}
+
+.brawl #selection-page .characters #selection-player-one #selection-player-one-items .item-p1:hover {
   -webkit-animation: anim-glow 1.3s ease infinite;
           animation: anim-glow 1.3s ease infinite;
   outline: none;
   background-image: radial-gradient(lightblue, purple);
 }
 
-.brawl #selection-page .characters #selection-player-one-items img {
+.brawl #selection-page .characters #selection-player-one #selection-player-one-items img {
   border: none;
   height: 5vh;
+}
+
+.brawl #selection-page .characters #selection-player-one #selection-item-stats {
+  margin-top: 20px;
+  border: 1px solid red;
+  height: 1vh;
 }
 
 .brawl #selection-page .characters #selection-player-two {
@@ -261,8 +291,28 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 60vh;
-  width: 20vw;
+  height: 65vh;
+  width: 18vw;
+}
+
+.brawl #selection-page .characters #selection-player-two #player-two-avatar {
+  height: 50vh;
+  border-top-left-radius: 20%;
+  border-top-right-radius: 20%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2e2a1931), to(#2e2a190f));
+  background-image: linear-gradient(#2e2a1931, #2e2a190f);
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-player-two-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 15vh;
+  border: 1px solid red;
 }
 
 .brawl #selection-page .characters #selection-player-two #selection-player-two-items {
@@ -275,8 +325,54 @@ body {
           flex-direction: row;
 }
 
+.brawl #selection-page .characters #selection-player-two #selection-player-two-items .item-button-container-player-two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-player-two-items .item-p2.active {
+  -webkit-box-shadow: 0px 0px 17px 15px purple;
+          box-shadow: 0px 0px 17px 15px purple;
+  border-width: 1px;
+  background-image: radial-gradient(lightblue, purple);
+  -webkit-animation: anim-glow 1.3s ease;
+          animation: anim-glow 1.3s ease;
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-player-two-items .item-p2.active2 {
+  -webkit-box-shadow: 0px 0px 17px 15px purple;
+          box-shadow: 0px 0px 17px 15px purple;
+  border-width: 1px;
+  background-image: radial-gradient(lightblue, purple);
+  -webkit-animation: anim-glow 1.3s ease;
+          animation: anim-glow 1.3s ease;
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-player-two-items .item-p2:hover {
+  -webkit-animation: anim-glow 1.3s ease infinite;
+          animation: anim-glow 1.3s ease infinite;
+  outline: none;
+  background-image: radial-gradient(lightblue, purple);
+}
+
 .brawl #selection-page .characters #selection-player-two #selection-player-two-items img {
+  border: none;
   height: 5vh;
+}
+
+.brawl #selection-page .characters #selection-player-two #selection-item-stats-p2 {
+  margin-top: 20px;
+  border: 1px solid red;
+  height: 1vh;
 }
 
 .brawl #selection-page .characters button {
@@ -292,7 +388,7 @@ body {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  margin: 0px 20px 0px 20px;
+  margin: 30px 20px;
   height: 5vh;
   width: 2vw;
   border-radius: 90%;
@@ -307,12 +403,23 @@ body {
 }
 
 .brawl #selection-page #start-fight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: transparent;
   border: none;
+  width: 100px;
+}
+
+.brawl #selection-page #start-fight:focus {
+  outline: 0;
 }
 
 .brawl #selection-page #start-fight img {
-  width: 10vw;
+  width: 12vw;
   height: 20vh;
 }
 

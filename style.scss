@@ -46,108 +46,160 @@
 
 /* FIRE */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-
-    background: url('images/boris-yue-9sE-72cYCeI-unsplash.jpg') no-repeat center center;
-    background-position: bottom;
-    background-size: cover;
-    font-family: 'Alfa Slab One', cursive;
-    height: 100vh;
+  background: url('images/boris-yue-9sE-72cYCeI-unsplash.jpg') no-repeat center center;
+  background-position: bottom;
+  background-size: cover;
+  font-family: 'Alfa Slab One', cursive;
+  height: 100vh;
 }
 .brawl {
+  height: 100%;
+  width: 100%;
   // CREATION PAGE
   #selection-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 73, 115, 0.814), #341100cc),url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    .title {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(to bottom, rgba(0, 73, 115, 0.814), #341100cc),url(images/f45d080a5bfe8161dba8014562a18da0.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      color: white;
-      .title {
+      position: relative;
+    }
+    .characters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      // SELECTION P1
+      #selection-player-one {
+        display: flex;
+        flex-direction: column;
+        height: 65vh;
+        width: 18vw;
+        #player-one-avatar{
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          height: 50vh;
+          border-top-left-radius: 20%;
+          border-top-right-radius: 20%;
+          background-image: linear-gradient(#2e2a1931, #2e2a190f);
+        }
+        #selection-player-one-stats {
+          height: 100%;
+         .warrior-stats {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;
-          position: relative;
-      }
-      .characters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-content: center;
-        #selection-player-one {
-          display: flex;
-          flex-direction: column;
-          height: 60vh;
-          width: 20vw;
-          #player-one-avatar{
-            display: flex;
-            justify-content: center;
-            align-content: center;
-          }
+         }
         }
         #selection-player-one-items {
+        .item-button-container {
           display: flex;
           flex-direction: row;
-          .item-button-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-          }
-          .item-p1 {
-            @include item-buttons;
-          }
-          img {
-            border:none;
-            height: 5vh;
-          }
-         }
-        #selection-player-two {
-          display: flex;
-          flex-direction: column;
-          height: 60vh;
-          width: 20vw;
-          #selection-player-two-items {
-            display: flex;
-            flex-direction: row;
-            img {
-              height: 5vh;
-            }
-          }
-         }
-      button {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        margin: 0px 20px 0px 20px;
-        height: 5vh;
-        width: 2vw;
-        border-radius: 90%;
-        border: none;
-        color: rgba(4, 255, 0, 0.729);
-        background-color: transparent;
-        z-index: 5;
-        &:focus {
-        outline:0;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10px;
+        }
+        .item-p1 {
+          @include item-buttons;
+        }
+        img {
+          border: none;
+          height: 5vh;
         }
       }
+      #selection-item-stats {
+        margin-top: 20px;
+        border: 1px solid red;
+        height: 1vh;
+      }
     }
+    // SELECTION P2
+    #selection-player-two {
+      display: flex;
+      flex-direction: column;
+      height: 65vh;
+      width: 18vw;
+      #player-two-avatar{
+        height: 50vh;
+        border-top-left-radius: 20%;
+        border-top-right-radius: 20%;
+        background-image: linear-gradient(#2e2a1931, #2e2a190f);
+      }
+      #selection-player-two-stats {
+        display: flex;
+        flex-direction: column;
+        height: 15vh;
+        border: 1px solid red;
+      }
+      #selection-player-two-items {
+        display: flex;
+        flex-direction: row;
+        .item-button-container-player-two {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-top: 10px;
+        }
+        .item-p2{
+          @include item-buttons;
+        }
+        img {
+          border: none;
+          height: 5vh;
+        }
+      }
+      #selection-item-stats-p2 {
+        margin-top: 20px;
+        border: 1px solid red;
+        height: 1vh;
+      }
+    }
+    button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+      margin: 30px 20px;
+      height: 5vh;
+      width: 2vw;
+      border-radius: 90%;
+      border: none;
+      color: rgba(4, 255, 0, 0.729);
+      background-color: transparent;
+      z-index: 5;
+      &:focus {
+        outline:0;
+      }
+    }
+  }
   #start-fight {
-  background-color: transparent;
-  border: none;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    &:focus {
+      outline: 0;
+    }
     img {
-    width: 10vw;
+    width: 12vw;
     height: 20vh;
     }
   }
@@ -184,7 +236,6 @@ body {
         grid-template-columns: auto auto auto;
         grid-template-rows: auto;
         grid-template-areas:"1 2 3";
-
       }
   } 
 }

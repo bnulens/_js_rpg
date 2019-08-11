@@ -1,0 +1,231 @@
+#battle-scene {
+  width: 90vw;
+  height: 100vh;
+}
+
+#battle-scene #countdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#battle-scene .head-up-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 2vh;
+}
+
+#battle-scene .battle-ground {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
+  -ms-grid-rows: 50vh;
+      grid-template-rows: 50vh;
+      grid-template-areas: ". playerOne playerTwo .";
+}
+
+#battle-scene .battle-ground #playerOne {
+  grid-area: "playerOne";
+}
+
+#battle-scene .battle-ground #playerTwo {
+  grid-area: "playerTwo";
+}
+
+#battle-scene .player-moves {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+      grid-template-areas: "1 2 3";
+}
+
+.player-moves-container {
+  display: block;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#player-one-moves {
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 10px;
+  margin-left: 50px;
+  margin-top: -45px;
+  padding: 10px;
+}
+
+#player-two-moves {
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 50px;
+  margin-top: -45px;
+  padding: 10px;
+}
+
+/* ATTACK BUTTON STYLING */
+#attack {
+  width: 10vw;
+  height: 10vh;
+  margin: 10px;
+  background-color: rgba(117, 117, 117, 0.317);
+}
+
+.draw-border {
+  -webkit-box-shadow: inset 0 0 0 4px lightblue;
+          box-shadow: inset 0 0 0 4px lightblue;
+  color: lightblue;
+  -webkit-transition: color 0.25s 0.08333s;
+  transition: color 0.25s 0.08333s;
+  position: relative;
+}
+
+.draw-border::before, .draw-border::after {
+  content: '';
+  border: 0 solid transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.draw-border:hover {
+  color: red;
+}
+
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: red;
+  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+
+.draw-border:hover::before {
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+          transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+  -webkit-transition-delay: 0s, 0.25s, 0s;
+          transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn1 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  color: black;
+}
+
+.btn1:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+/* HEAL BUTTON STYLING */
+#heal {
+  width: 55px;
+  height: 25px;
+  margin: 10px;
+}
+
+#counter {
+  width: 55px;
+  height: 25px;
+  margin: 10px;
+}
+
+.player-actions-container {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 75vw;
+}
+
+.player-actions-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 25vw;
+  height: 10vh;
+  background: transparent;
+  border: 1px solid grey;
+}
+
+#player-actions {
+  font-size: 1vw;
+}
+/*# sourceMappingURL=battle-style.css.map */

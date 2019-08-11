@@ -35,7 +35,7 @@ const warriorArray = [
     race: 'Elf',
     weapon: 'Longbow',
     currentHealth: 150,
-    maxHealth: 100,
+    maxHealth: 125,
     maxDamage: 15,
     maxHealing: 20,
     maxDeflect: 35
@@ -50,6 +50,17 @@ const warriorArray = [
     maxDamage: 15,
     maxHealing: 40,
     maxDeflect: 15,
+  },
+  {
+    img: 'images/commander.png',
+    name: 'Napoleon',
+    race: 'Human',
+    weapon: 'Tactics',
+    currentHealth: 100,
+    maxHealth: 100,
+    maxDamage: 40,
+    maxHealing: 15,
+    maxDeflect: 20
   }
 ]
 
@@ -72,12 +83,12 @@ document.addEventListener('click', function(e){
     displayWarrior(p1stats, p1avatar, 'player-one')
     warriorIndex -= 1;
     if (warriorIndex === -1){
-      warriorIndex = 3;
+      warriorIndex = 4;
     } 
   } if (e.target.matches("#next-one")){
     displayWarrior(p1stats, p1avatar, 'player-one')
     warriorIndex += 1;
-    if (warriorIndex === 4){
+    if (warriorIndex === 5){
       warriorIndex = 0;
     } 
   }
@@ -88,12 +99,12 @@ document.addEventListener('click', function(e){
     displayWarrior(p2stats, p2avatar, 'player-two')
     warriorIndex -= 1;
     if (warriorIndex === -1){
-      warriorIndex = 3;
+      warriorIndex = 4;
     }
   } if (e.target.matches("#next-two")){
     displayWarrior(p2stats, p2avatar, 'player-two')
     warriorIndex += 1;
-    if (warriorIndex === 4){
+    if (warriorIndex === 5){
       warriorIndex = 0;
     } 
   }
@@ -139,39 +150,45 @@ function getWarriorInfo() {
   div.setAttribute("class", "warrior-stats");
 
   var header = document.createElement('h2');
-  var raceStat = document.createElement("P");
+  var raceStat = document.createElement("p");
   raceStat.setAttribute("class", "race");
 
-  var healthStat = document.createElement("P");
+  var damageStat = document.createElement("p");
+  damageStat.setAttribute("class", "damage");
+
+  var healthStat = document.createElement("p");
   healthStat.setAttribute("class", "health");
 
-  var maxHealthStat = document.createElement("P");
+  var maxHealthStat = document.createElement("p");
   maxHealthStat.setAttribute("class", "max-health");
 
-  var deflectStat = document.createElement("P");
+  var deflectStat = document.createElement("p");
   deflectStat.setAttribute("class", "deflect");
   
   // collect the info we want to display
   let warrior = warriorArray[warriorIndex];
-  var warriorName = document.createTextNode(`${warrior.name}` + "\n");
-  var warriorRace = document.createTextNode(` race: ${warrior.race} `);
-  var warriorHealth = document.createTextNode(` HP ${warrior.maxHealth} `);
-  var warriorMaxHealth = document.createTextNode(`heal: ${warrior.maxHealing} `);
-  var warriorDeflect = document.createTextNode(`DEF: ${warrior.maxDeflect} `);
+  var warriorName = document.createTextNode(`${warrior.name}`);
+  var warriorRace = document.createTextNode(`${warrior.race}`);
+  var warriorDamage = document.createTextNode(`DAM - ${warrior.maxDamage}`);
+  var warriorHealth = document.createTextNode(` HP - ${warrior.maxHealth}`);
+  var warriorMaxHealth = document.createTextNode(`heal - ${warrior.maxHealing}`);
+  var warriorDeflect = document.createTextNode(`DEF -  ${warrior.maxDeflect}`);
 
   // append to the elements
   header.appendChild(warriorName);
   raceStat.appendChild(warriorRace);
+  damageStat.appendChild(warriorDamage);
   healthStat.appendChild(warriorHealth);
   maxHealthStat.appendChild(warriorMaxHealth);
   deflectStat.appendChild(warriorDeflect);
 
   // append to our div
-  div.appendChild(warriorName);
-  div.appendChild(warriorRace);
-  div.appendChild(warriorHealth);
-  div.appendChild(warriorMaxHealth);
-  div.appendChild(warriorDeflect);
+  div.appendChild(header);
+  div.appendChild(raceStat);
+  div.appendChild(damageStat);
+  div.appendChild(healthStat);
+  div.appendChild(maxHealthStat);
+  div.appendChild(deflectStat);
   
   return div;
 }

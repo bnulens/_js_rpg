@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="battle-style.css">
+    <title>Battle</title>
+</head>
+<body>
+    <!-- ACTUAL BATTLE -->  
+    <div id="battle-scene" name="battle-scene" type="content">
+        <div id="countdown"></div>
+    <div class="head-up-display">
+        <p>Player 1 HP</p>
+        <progress id="p1-health" value="100" max="100"></progress>
+        <p>Player 2 HP</p>
+        <progress id="p2-health" value="100" max="100"></progress>
+    </div>
+    <!-- Where the avatars appear and animations happen -->
+    <div class="battle-ground">
+        <div id="player-one">img-P1</div>
+        <div id="player-two">img-P2</div>
+    </div>
+    <!-- Where the playermoves are available  -->
+    <div class="player-moves-container">              
+        
+    <div class="player-moves" type="content">
+        <div id="player-one-moves">
+            <button id="attack">ATTACK</button>
+            <button id="heal">Heal</button>
+            <button id="counter">Counter</button>
+        </div>
+        
+        <div class="player-actions-container">
+        <div class="player-actions-bar">                                              
+        <div id="player-actions">log log log !</div> 
+        
+        </div>
+        </div>
+        <div id="player-two-moves">
+            <button id="attack">ATTACK</button>
+            <button id="heal">Heal</button>
+            <button id="counter">Counter</button>
+        </div>
+    </div>
+</div>
+</div>  
+</body>
+</html> 
+ 

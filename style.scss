@@ -44,7 +44,6 @@
   @include neon-versus;
 }
 
-/* FIRE */
 * {
   margin: 0;
   padding: 0;
@@ -101,12 +100,7 @@ body {
           background-image: linear-gradient(#2e2a1931, #2e2a190f);
         }
         #selection-player-one-stats {
-          height: 100%;
-         .warrior-stats {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-         }
+          height: 15vh;
         }
         #selection-player-one-items {
         .item-button-container {
@@ -126,7 +120,6 @@ body {
       }
       #selection-item-stats {
         margin-top: 20px;
-        border: 1px solid red;
         height: 1vh;
       }
     }
@@ -143,10 +136,7 @@ body {
         background-image: linear-gradient(#2e2a1931, #2e2a190f);
       }
       #selection-player-two-stats {
-        display: flex;
-        flex-direction: column;
         height: 15vh;
-        border: 1px solid red;
       }
       #selection-player-two-items {
         display: flex;
@@ -155,7 +145,6 @@ body {
           display: flex;
           flex-direction: row;
           align-items: center;
-          margin-top: 10px;
         }
         .item-p2{
           @include item-buttons;
@@ -167,7 +156,6 @@ body {
       }
       #selection-item-stats-p2 {
         margin-top: 20px;
-        border: 1px solid red;
         height: 1vh;
       }
     }
@@ -194,189 +182,13 @@ body {
     justify-content: center;
     background-color: transparent;
     border: none;
-    width: 100px;
-    &:focus {
-      outline: 0;
+    width: 100%;
+      &:focus {
+        outline: 0;
+      }
+      img {
+        max-width: 32%;
+      }
     }
-    img {
-    width: 12vw;
-    height: 20vh;
-    }
   }
-  // BATTLE PAGE
-  #battle-scene {
-      width: 100%;
-      height: 100%;
-      #countdown {
-          display: flex;
-          justify-content: center;
-          align-content: center;
-      }
-      .head-up-display {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-self: center;
-          margin-top: 10px;
-      }
-      .battle-ground {
-          display: grid;
-          grid-template-columns:  1fr 1fr;
-          grid-template-rows: 50vh;
-          grid-template-areas:" . playerOne playerTwo . ";
-          #playerOne {
-              grid-area: "playerOne";
-          }
-          #playerTwo {
-              grid-area: "playerTwo";
-          }
-      }
-      .player-moves {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto;
-        grid-template-areas:"1 2 3";
-      }
-  } 
-}
-
-.player-moves-container {
-  display: block;
-  justify-content: space-between;
-  flex-direction: row;
-}
-
-#player-one-moves {
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin: 10px;
-  margin-left: 50px;
-  margin-top: -45px;
-  padding: 10px;
-}
-#player-two-moves {
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  margin-right: 50px;
-  margin-top: -45px;
-  padding: 10px;
-}
-
-/* ATTACK BUTTON STYLING */
-#attack {
-  width: 10vw;
-  height: 10vh;
-  margin: 10px;
-  background-color: rgba(117, 117, 117, 0.317);
-}
-
-@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
-  box-shadow: inset 0 0 0 $width $color;
-  color: $color;
-  transition: color $duration $duration/3;
-  position: relative;
-
-  &::before,
-  &::after {
-    border: 0 solid transparent;
-    box-sizing: border-box;
-    content: '';
-    pointer-events: none;
-    position: absolute;
-    width: 0; height: 0;
-
-    #{$vertical}: 0;
-    #{$horizontal}: 0;
-  }
-
-  &::before {
-    $h-side: if($horizontal == 'left', 'right', 'left');
-
-    border-#{$vertical}-width: $width;
-    border-#{$h-side}-width: $width;
-  }
-
-  &::after {
-    $v-side: if($vertical == 'top', 'bottom', 'top');
-
-    border-#{$v-side}-width: $width;
-    border-#{$horizontal}-width: $width;
-  }
-
-  &:hover {
-    color: $hover;
-
-    &::before,
-    &::after {
-      border-color: $hover;
-      transition: border-color 0s, width $duration, height $duration;
-      width: 100%;
-      height: 100%;
-    }
-
-    &::before { transition-delay: 0s, 0s, $duration; }
-
-    &::after { transition-delay: 0s, $duration, 0s; }
-  }
-}
-
-.draw-border {
-  @include btn-border-drawing(lightblue, red, 4px, bottom, right);
-}
-
-.btn1 {
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1.5;
-  font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 1em 2em;
-  letter-spacing: 0.05rem;
-  color: black;
-
-  &:focus { outline: 2px dotted #55d7dc; }
-}
-
-/* HEAL BUTTON STYLING */
-
-#heal {
-  width: 55px;
-  height: 25px;
-  margin: 10px;
-}
-
-#counter {
-  width: 55px;
-  height: 25px;
-  margin: 10px;
-}
-
-.player-actions-container {
-  display: grid;
-  justify-content: center;
-  align-items: flex-end;
-  width: 75vw;
-
-}
-
-.player-actions-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25vw;
-  height: 10vh;
-  background: transparent;
-  border: 1px solid grey;
-}
-
-
-#player-actions {
-  font-size: 1vw;
-
-}
 }
